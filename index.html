@@ -331,7 +331,7 @@
       <section class="hero">
         <h2>Hope & Recovery in Jesus Christ</h2>
         <p class="muted">
-          Hope, healing, and freedom through Jesus Christ- salvation, real recovery, and discipleship.
+          Recovery is not behavior modification—it is transformation. Jesus Christ does not merely help us cope; He sets us free.
         </p>
         <div class="chips">
           <span class="chip">Freedom from addictions</span>
@@ -351,36 +351,6 @@
         <div class="grid">
           <div class="card" style="grid-column: span 7;">
             <h3>Start Here (Simple Next Step)</h3>
-            <div class="grid" style="margin-top:16px;">
-  <div class="card" style="grid-column: span 7;">
-    <h3>Daily Devotional</h3>
-    <p class="muted" id="devotionalTitle">Loading…</p>
-    <blockquote id="devotionalVerse"></blockquote>
-    <p class="muted" id="devotionalBody"></p>
-    <div class="btnrow">
-      <button class="btn alt" onclick="nextDevotional()">Next</button>
-      <button class="btn alt" onclick="prevDevotional()">Back</button>
-      <button class="btn" onclick="openPanel('pray')">Ask for Prayer</button>
-    </div>
-  </div>
-
-  <div class="card soft" style="grid-column: span 5;">
-    <h3>Scripture Search + Interpretation</h3>
-    <p class="muted">Search a verse topic (example: “anger”, “fear”, “forgiveness”, “salvation”).</p>
-
-    <input id="bibleSearchInput" type="text" placeholder="Search…" oninput="runBibleSearch()" />
-    <div class="notice" id="bibleSearchResults" style="margin-top:10px;">
-      Start typing to search.
-    </div>
-
-    <div class="btnrow">
-      <a class="btn alt" href="#" onclick="openPanel('salvation'); return false;">Salvation</a>
-      <a class="btn alt" href="#" onclick="openPanel('defects'); return false;">Defects & Healing</a>
-      <a class="btn" href="#" onclick="openPanel('connect'); return false;">Find a Church</a>
-    </div>
-  </div>
-</div>
-
             <p class="muted">
               If you want freedom, start with honesty before God. Confess what’s real. Turn to Jesus. Ask Him to lead you.
             </p>
@@ -407,135 +377,6 @@
           </div>
         </div>
       </section>
-// -------------------- DAILY DEVOTIONALS --------------------
-const devotionals = [
-  {
-    title: "Surrender brings peace",
-    verseRef: "Proverbs 3:5–6",
-    verseText:
-      "Trust in the LORD with all your heart, and lean not on your own understanding; in all your ways acknowledge Him, and He shall direct your paths.",
-    body:
-      "A lot of anxiety comes from trying to control outcomes. Surrender is not quitting—it's trusting the Lord to lead. Today, practice obedience in one small area and let God handle the results."
-  },
-  {
-    title: "God meets you in weakness",
-    verseRef: "2 Corinthians 12:9",
-    verseText:
-      "My grace is sufficient for you, for My strength is made perfect in weakness.",
-    body:
-      "Recovery grows when we stop pretending we’re strong. Bring the truth to God and to wise counsel. Weakness admitted is not defeat—it’s the doorway to Christ’s strength."
-  },
-  {
-    title: "Freedom is in the Son",
-    verseRef: "John 8:36",
-    verseText:
-      "Therefore if the Son makes you free, you shall be free indeed.",
-    body:
-      "Jesus doesn’t just help you manage sin—He breaks bondage. Ask Him for freedom, then walk in the light: confession, accountability, Scripture, prayer, and fellowship."
-  },
-  {
-    title: "Peace replaces anxiety",
-    verseRef: "Philippians 4:6–7",
-    verseText:
-      "Be anxious for nothing… and the peace of God… will guard your hearts and minds through Christ Jesus.",
-    body:
-      "Peace is not a personality trait—it’s a promise. Turn anxiety into prayer with specifics. God doesn’t shame you for fear; He invites you to trust Him."
-  }
-];
-
-let devotionalIndex = 0;
-
-function loadDevotionalByDate(){
-  const d = new Date();
-  const seed = d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
-  devotionalIndex = seed % devotionals.length;
-  renderDevotional();
-}
-
-function renderDevotional(){
-  const item = devotionals[devotionalIndex];
-  const t = document.getElementById('devotionalTitle');
-  const v = document.getElementById('devotionalVerse');
-  const b = document.getElementById('devotionalBody');
-  if(!t || !v || !b) return;
-
-  t.textContent = item.title + " — " + item.verseRef;
-  v.innerHTML = `${item.verseText}<br><strong>${item.verseRef}</strong>`;
-  b.textContent = item.body;
-}
-
-function nextDevotional(){ devotionalIndex = (devotionalIndex + 1) % devotionals.length; renderDevotional(); }
-function prevDevotional(){ devotionalIndex = (devotionalIndex - 1 + devotionals.length) % devotionals.length; renderDevotional(); }
-
-// -------------------- SCRIPTURE SEARCH (MINI LIBRARY) --------------------
-const bibleLibrary = [
-  {
-    tags: ["salvation","grace","faith","gift"],
-    ref: "Ephesians 2:8–9",
-    text: "For by grace you have been saved through faith… it is the gift of God, not of works…",
-    interp: "Salvation is received, not earned. Works follow salvation; they do not purchase it."
-  },
-  {
-    tags: ["scripture","bible","equipping","doctrine"],
-    ref: "2 Timothy 3:16–17",
-    text: "All Scripture is given by inspiration of God… that the man of God may be complete, thoroughly equipped for every good work.",
-    interp: "God’s Word is sufficient for doctrine and discipleship. A healthy church teaches Scripture clearly."
-  },
-  {
-    tags: ["anger","wrath","self-control"],
-    ref: "Ephesians 4:26–27",
-    text: "Be angry, and do not sin… nor give place to the devil.",
-    interp: "Anger can be real and still handled righteously. Unchecked anger becomes a foothold."
-  },
-  {
-    tags: ["fear","anxiety","peace"],
-    ref: "Philippians 4:6–7",
-    text: "Be anxious for nothing… and the peace of God… will guard your hearts and minds through Christ Jesus.",
-    interp: "Replace anxiety with prayer. Peace is a guarded heart, not a controlled world."
-  },
-  {
-    tags: ["forgiveness","offense","bitterness"],
-    ref: "Colossians 3:13",
-    text: "…forgiving one another… even as Christ forgave you, so you also must do.",
-    interp: "Forgiveness releases vengeance to God. It doesn’t require you to pretend wrong was right."
-  },
-  {
-    tags: ["wisdom","counsel","friends","community"],
-    ref: "Proverbs 11:14",
-    text: "…in the multitude of counselors there is safety.",
-    interp: "Wise counsel is protection. Isolation multiplies deception; fellowship strengthens discernment."
-  }
-];
-
-function runBibleSearch(){
-  const input = document.getElementById('bibleSearchInput');
-  const out = document.getElementById('bibleSearchResults');
-  if(!input || !out) return;
-
-  const q = input.value.trim().toLowerCase();
-  if(q.length === 0){
-    out.textContent = "Start typing to search.";
-    return;
-  }
-
-  const results = bibleLibrary.filter(x => {
-    const hay = (x.ref + " " + x.text + " " + x.interp + " " + x.tags.join(" ")).toLowerCase();
-    return hay.includes(q);
-  }).slice(0, 8);
-
-  if(results.length === 0){
-    out.textContent = "No matches. Try: anger, fear, salvation, forgiveness, scripture.";
-    return;
-  }
-
-  out.innerHTML = results.map(r => `
-    <div style="padding:10px 0; border-bottom:1px solid rgba(20,35,70,.12)">
-      <div style="font-weight:800">${r.ref}</div>
-      <div>${r.text}</div>
-      <div class="muted" style="margin-top:6px"><strong>Interpretation:</strong> ${r.interp}</div>
-    </div>
-  `).join("");
-}
 
       <!-- SALVATION -->
       <section class="panel" id="panel-salvation">
@@ -628,7 +469,7 @@ function runBibleSearch(){
           <div class="card" style="grid-column: span 12;">
             <h3>Defects & Healing (Heart + Character)</h3>
             <p class="muted">
-              The Lord transforms the heart from the inside out. Below are common struggles.
+              The Lord transforms the heart from the inside out. Below are common struggles (no page numbers).
               Each one will grow over time into a deeper, Scripture-centered guide.
             </p>
 
@@ -858,19 +699,40 @@ I belong to You. Lead me in truth and love. In Jesus’ name, amen.</textarea>
       </section>
 
       <!-- CONNECT -->
-   <section id="panel-connect" class="panel">
-  <h2>Connect With Churches</h2>
-  <p class="muted">Find Bible-teaching churches near you and connect for fellowship and discipleship.</p>
+      <section class="panel" id="panel-connect">
+        <div class="grid">
+          <div class="card" style="grid-column: span 7;">
+            <h3>Connect With Bible-Teaching Churches</h3>
+            <p class="muted">
+              God often brings healing through discipleship, fellowship, and healthy community.
+            </p>
+            <ul>
+              <li>Find a church that teaches the Bible and centers on Jesus Christ.</li>
+              <li>Ask for discipleship, prayer, accountability, and service opportunities.</li>
+              <li>Recovery grows best in truth + love + consistent community.</li>
+            </ul>
 
-  <div class="grid">
-    <div class="card" style="grid-column: span 7;">
-      <h3>Why Scripture-Centered Churches Matter</h3>
+            <div class="verse">
+              “And let us consider one another… not forsaking the assembling of ourselves together…”
+              <strong>Hebrews 10:24–25</strong>
+            </div>
+          </div>
 
-      <blockquote>
-        “All Scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction,
-        for instruction in righteousness, that the man of God may be complete, thoroughly equipped for every good work
-::contentReference[oaicite:0]{index=0}
-
+          <div class="card soft" style="grid-column: span 5;">
+            <h3>Christian Profile (Future Feature)</h3>
+            <p class="muted">
+              This site is currently static (GitHub Pages). Profiles, logins, and private messaging require a real backend.
+            </p>
+            <p class="muted">
+              For now, use Prayer Request to connect by email.
+            </p>
+            <div class="btnrow">
+              <a class="btn" href="#" onclick="openPanel('pray'); return false;">Prayer Request</a>
+              <a class="btn alt" href="#" onclick="openPanel('salvation'); return false;">Salvation</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- PRAYER REQUEST -->
       <section class="panel" id="panel-pray">
