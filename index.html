@@ -21,9 +21,9 @@
 
     <div class="layout">
       <nav>
-        <button data-panel="home" class="active">Home</button>
-        <button data-panel="surrender">Surrender</button>
-        <button data-panel="connect">Connect</button>
+        <button data-panel="home" class="active" type="button">Home</button>
+        <button data-panel="surrender" type="button">Surrender</button>
+        <button data-panel="connect" type="button">Connect</button>
       </nav>
 
       <div class="content">
@@ -40,13 +40,13 @@
 
             <div class="card" style="grid-column: span 6;">
               <h3>Search Scripture</h3>
-              <input type="text" placeholder="Search Bible verses…" style="width:100%;padding:.6rem;border-radius:8px;">
+              <input id="scriptureSearch" type="text" placeholder="Search Bible verses…">
               <p class="muted">Interpretations are Christ-centered and Scripture-led.</p>
             </div>
 
             <div class="card" style="grid-column: span 6;">
               <h3>Live Hope Counter</h3>
-              <h1 id="surrenderCount">0</h1>
+              <h1 id="surrenderCount" style="margin: 6px 0 0; font-size: 44px;">0</h1>
               <p class="muted">People surrendering their lives to Jesus.</p>
             </div>
           </div>
@@ -57,8 +57,10 @@
           <div class="card">
             <h2>Total Surrender</h2>
             <p class="muted">Salvation is a free gift — Ephesians 2:8–9</p>
-            <textarea placeholder="Your surrender prayer…" style="width:100%;height:140px;"></textarea>
-            <button type="button" onclick="recordSurrender()">Submit Surrender</button>
+            <textarea id="surrenderText" placeholder="Your surrender prayer…"></textarea>
+            <div style="margin-top:12px;">
+              <button type="button" onclick="recordSurrender()">Submit Surrender</button>
+            </div>
           </div>
         </section>
 
