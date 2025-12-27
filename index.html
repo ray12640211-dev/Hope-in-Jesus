@@ -26,6 +26,8 @@
       <nav>
         <button data-panel="home" class="active" type="button">Home</button>
         <button data-panel="salvation" type="button">Salvation</button>
+        <button data-panel="prayer" type="button">Prayer Request</button>
+        <button data-panel="music" type="button">Worship Music</button>
         <button data-panel="connect" type="button">Find Churches</button>
       </nav>
 
@@ -42,24 +44,31 @@
                 <br>— Ephesians 2:8–9
               </blockquote>
               <p class="muted">
-                Salvation is received, not achieved.
-                Jesus paid the full price at the cross.
+                Salvation is received, not achieved. Jesus paid the full price at the cross.
               </p>
             </div>
 
             <div class="card" style="grid-column: span 12;">
-              <h3>Worship Music</h3>
+              <h2>Daily Devotionals</h2>
               <p class="muted">
-                Music will not autoplay — press play when ready.
+                Get daily devotionals from reliable Bible resources:
               </p>
 
-              <iframe
-                style="border-radius:12px;width:100%;height:152px;"
-                src="https://open.spotify.com/embed/playlist/2r2152cOc7SrUs28EzPfrk"
-                frameborder="0"
-                allow="encrypted-media; clipboard-write; fullscreen; picture-in-picture"
-                loading="lazy">
-              </iframe>
+              <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;">
+                <a class="primary" href="https://www.youversion.com/the-bible-app/" target="_blank" rel="noopener">
+                  YouVersion Bible App
+                </a>
+                <a class="primary" href="https://www.biblegateway.com/devotionals/" target="_blank" rel="noopener">
+                  Bible Gateway Devotionals
+                </a>
+                <a class="primary" href="https://www.blueletterbible.org/" target="_blank" rel="noopener">
+                  Blue Letter Bible
+                </a>
+              </div>
+
+              <p class="muted" style="margin-top:10px;font-size:13px;">
+                Tip: Install the Bible app on your phone for daily reading reminders.
+              </p>
             </div>
           </div>
         </section>
@@ -126,6 +135,92 @@ In Jesus’ name, amen.
           </div>
         </section>
 
+        <!-- PRAYER REQUEST -->
+        <section class="panel" id="panel-prayer">
+          <div class="card">
+            <h2>Prayer Requests</h2>
+
+            <blockquote>
+              “You do not have because you do not ask.”
+              <br>— James 4:2
+            </blockquote>
+
+            <p class="muted" style="margin-top:10px;">
+              The Lord invites us to come to Him—asking, seeking, abiding, and receiving by faith.
+            </p>
+
+            <div style="display:grid;gap:12px;margin-top:14px;">
+              <blockquote>
+                “Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.
+                For everyone who asks receives, and he who seeks finds, and to him who knocks it will be opened.”
+                <br>— Matthew 7:7–8
+              </blockquote>
+
+              <blockquote>
+                “If you abide in Me, and My words abide in you, you will ask what you desire, and it shall be done for you.”
+                <br>— John 15:7
+              </blockquote>
+
+              <blockquote>
+                “And whatever you ask in My name, that I will do, that the Father may be glorified in the Son.
+                If you ask anything in My name, I will do it.”
+                <br>— John 14:13–14
+              </blockquote>
+
+              <blockquote>
+                “Now this is the confidence that we have in Him, that if we ask anything according to His will, He hears us.
+                And if we know that He hears us, whatever we ask, we know that we have the petitions that we have asked of Him.”
+                <br>— 1 John 5:14–15
+              </blockquote>
+            </div>
+
+            <hr style="margin:18px 0;border:none;border-top:1px solid rgba(255,255,255,.14);">
+
+            <h3>Send Your Prayer Request</h3>
+            <p class="muted">
+              Fill this out and click “Send Prayer Request.” Your email app will open and send it to us.
+            </p>
+
+            <!-- IMPORTANT: replace YOUR_GMAIL_HERE@gmail.com in the script below -->
+            <form id="prayerForm" style="display:grid;gap:10px;margin-top:12px;">
+              <input id="prayerName" type="text" placeholder="Your name (optional)">
+              <input id="prayerEmail" type="email" placeholder="Your email (optional)">
+              <textarea id="prayerRequest" placeholder="Write your prayer request here..." required></textarea>
+              <button type="submit">Send Prayer Request</button>
+              <p class="muted" style="font-size:13px;margin:0;">
+                Note: This opens your email client (Gmail/Apple Mail/Outlook). If nothing opens, you may not have a default email app set.
+              </p>
+            </form>
+          </div>
+        </section>
+
+        <!-- WORSHIP MUSIC -->
+        <section class="panel" id="panel-music">
+          <div class="card">
+            <h2>Worship Music</h2>
+            <p class="muted">Choose a trusted worship source below:</p>
+
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;">
+              <a class="primary" href="https://music.youtube.com/search?q=christian+worship" target="_blank" rel="noopener">
+                YouTube Music: Worship Search
+              </a>
+              <a class="primary" href="https://www.klove.com/" target="_blank" rel="noopener">
+                K-LOVE Radio
+              </a>
+              <a class="primary" href="https://www.air1.com/" target="_blank" rel="noopener">
+                Air1 Worship Now
+              </a>
+              <a class="primary" href="https://open.spotify.com/search/worship" target="_blank" rel="noopener">
+                Spotify: Worship Search
+              </a>
+            </div>
+
+            <p class="muted" style="margin-top:12px;font-size:13px;">
+              Tip: Open in a new tab and press play—browser rules prevent auto-play on most sites.
+            </p>
+          </div>
+        </section>
+
         <!-- CONNECT -->
         <section class="panel" id="panel-connect">
           <div class="card">
@@ -142,42 +237,5 @@ In Jesus’ name, amen.
             </a>
 
             <blockquote style="margin-top:14px;">
-              “All Scripture is given by inspiration of God…”
-              <br>— 2 Timothy 3:16–17
-            </blockquote>
-          </div>
-        </section>
-
-      </div>
-    </div>
-
-    <footer>
-      Jesus Undisputed © <span id="year"></span>
-    </footer>
-  </main>
-
-  <script>
-    // Navigation
-    const buttons = document.querySelectorAll("nav button");
-    const panels = document.querySelectorAll(".panel");
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        buttons.forEach(b => b.classList.remove("active"));
-        panels.forEach(p => p.classList.remove("active"));
-        btn.classList.add("active");
-        const target = document.getElementById("panel-" + btn.dataset.panel);
-        if (target) target.classList.add("active");
-      });
-    });
-
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    function confirmSalvation() {
-      document.getElementById("salvationMsg").style.display = "block";
-      alert("Praise God. Salvation is the gift of grace through faith in Jesus Christ.");
-    }
-  </script>
-</body>
-</html>
+              “All Scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction,
+              for instruction in righteousness, that the man of God may be complete, thoroughly equipped for every good work
