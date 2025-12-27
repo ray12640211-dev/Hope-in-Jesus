@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The free gift of salvation through Jesus Christ. Grace alone, faith alone, Christ alone." />
+  <meta name="description" content="The free gift of salvation through Jesus Christ. Grace alone through faith." />
   <meta name="google-site-verification" content="PASTE-YOUR-GOOGLE-CODE-HERE" />
   <title>Jesus Undisputed | Salvation by Grace</title>
 
@@ -50,7 +50,7 @@
 
             <div class="card" style="grid-column: span 12;">
               <h2>Daily Devotionals</h2>
-              <p class="muted">Get daily devotionals from reliable Bible resources:</p>
+              <p class="muted">Daily devotionals from reliable Bible resources:</p>
 
               <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;">
                 <a class="primary" href="https://www.youversion.com/the-bible-app/" target="_blank" rel="noopener">
@@ -63,10 +63,6 @@
                   Blue Letter Bible
                 </a>
               </div>
-
-              <p class="muted" style="margin-top:10px;font-size:13px;">
-                Tip: Install the Bible app on your phone for daily reading reminders.
-              </p>
             </div>
           </div>
         </section>
@@ -107,9 +103,7 @@
             <hr style="margin:18px 0;border:none;border-top:1px solid rgba(255,255,255,.14);">
 
             <h3>Prayer to Receive Jesus Christ</h3>
-            <p class="muted">
-              Salvation is by grace through faith. If you believe, you may pray:
-            </p>
+            <p class="muted">If you believe, you may pray:</p>
 
             <textarea id="salvationPrayer" aria-label="Salvation prayer">
 Lord Jesus, I know that I am a sinner.
@@ -122,14 +116,12 @@ In Jesus’ name, amen.
             </textarea>
 
             <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
-              <button type="button" onclick="copySalvationPrayer()">Copy Prayer</button>
-              <button type="button" onclick="confirmSalvation()">I Prayed This</button>
+              <button type="button" id="copyPrayerBtn">Copy Prayer</button>
+              <button type="button" id="prayedBtn">I Prayed This</button>
             </div>
 
             <p class="muted" id="salvationMsg" style="display:none;margin-top:12px;">
-              If you believed and prayed, trust God’s promise —
-              <strong>Ephesians 2:8–9</strong>.
-              Now grow by reading the Gospel of John and connecting with a Bible-teaching church.
+              If you believed and prayed, trust God’s promise — <strong>Ephesians 2:8–9</strong>.
             </p>
           </div>
         </section>
@@ -177,7 +169,7 @@ In Jesus’ name, amen.
 
             <h3>Send Your Prayer Request</h3>
             <p class="muted">
-              Fill this out and click “Send Prayer Request.” It opens your email app to email us at:
+              This will open your email app to send your request to:
               <strong>jesusundisputed@gmail.com</strong>
             </p>
 
@@ -185,9 +177,9 @@ In Jesus’ name, amen.
               <input id="prayerName" type="text" placeholder="Your name (optional)">
               <input id="prayerEmail" type="email" placeholder="Your email (optional)">
               <textarea id="prayerRequest" placeholder="Write your prayer request here..." required></textarea>
-              <button type="submit">Send Prayer Request</button>
+              <button type="submit">Open Email & Send</button>
               <p class="muted" style="font-size:13px;margin:0;">
-                If nothing opens, you may not have a default email app set on this device.
+                If nothing opens, you may need a default email app set on this device.
               </p>
             </form>
           </div>
@@ -207,42 +199,29 @@ In Jesus’ name, amen.
                 Air1 Worship Now Live
               </a>
               <a class="primary" href="https://music.youtube.com/search?q=christian+worship" target="_blank" rel="noopener">
-                YouTube Music: Worship Search
+                YouTube Music: Christian Worship
               </a>
               <a class="primary" href="https://open.spotify.com/search/worship" target="_blank" rel="noopener">
                 Spotify: Worship Search
               </a>
             </div>
-
-            <p class="muted" style="margin-top:12px;font-size:13px;">
-              Note: most browsers block auto-play; you press play on the music page.
-            </p>
           </div>
         </section>
 
         <!-- CONNECT -->
-<section class="panel" id="panel-connect">
-  <div class="card">
-    <h2>Find Bible-Teaching Churches Near You</h2>
+        <section class="panel" id="panel-connect">
+          <div class="card">
+            <h2>Find Bible-Teaching Churches Near You</h2>
+            <p class="muted">This opens Google Maps and searches near the user.</p>
 
-    <p class="muted">
-      This opens your map and searches based on your location.
-    </p>
+            <a class="primary"
+               href="https://www.google.com/maps/search/?api=1&query=Calvary%20Chapel%20near%20me"
+               target="_blank"
+               rel="noopener">
+              Open Map — Churches Near Me
+            </a>
 
-    <a class="primary"
-       href="https://www.google.com/maps/search/?api=1&query=Calvary%20Chapel%20near%20me"
-       target="_blank"
-       rel="noopener">
-      Open Map — Churches Near Me
-    </a>
-
-    <blockquote style="margin-top:14px;">
-      “All Scripture is given by inspiration of God, and is profitable for doctrine,
-      for reproof, for correction, for instruction in righteousness,
-      that the man of God may be complete, thoroughly equipped for every good work.”
-      <br>
-      — 2 Timothy 3:16–17
-    </blockquote>
-
-  </div>
-</section>
+            <blockquote style="margin-top:14px;">
+              “All Scripture is given by inspiration of God, and is profitable for doctrine, for reproof,
+              for correction, for instruction in righteousness, that the man of God may be complete,
+              thoroughly equipped for every good work.”
