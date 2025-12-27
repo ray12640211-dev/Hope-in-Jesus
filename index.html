@@ -1,754 +1,274 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Christ-centered hope, salvation, and recovery through Jesus Christ. Connect, grow, and find Bible-teaching churches." />
-  <title>Hope in Jesus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hope, recovery, and freedom through Jesus Christ. Addiction recovery, character healing, surrender, and biblical discipleship." />
+  <meta name="google-site-verification" content="PASTE-YOUR-GOOGLE-CODE-HERE" />
+  <title>Jesus Undisputed | Hope & Recovery in Christ</title>
 
   <style>
-    :root{
-      --text:#0b1020;
-      --muted:#3a4a70;
-      --card:rgba(255,255,255,.82);
-      --card2:rgba(255,255,255,.72);
-      --border:rgba(20,35,70,.18);
-      --shadow:0 14px 40px rgba(0,0,0,.18);
-      --radius:18px;
-      --accent:#2343ff;
-      --accent2:#0ea5e9;
-      --btnText:#ffffff;
-
-      --max: 1500px;     /* wider content */
-      --sidebar: 290px;  /* sidebar width */
+    :root {
+      --bg: #0e1b2a;
+      --card: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.15);
+      --text: #eaf2ff;
+      --muted: #b8c6e0;
+      --accent: #5da9ff;
+      --accent2: #7cf5c7;
+      --radius: 16px;
+      --max: 1400px;
+      --sidebar: 260px;
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:var(--text);
-      line-height:1.55;
-
-      /* "Heaven" background: replace the URL if you want a different sky image */
+      color: var(--text);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.65) 0%, rgba(255,255,255,.85) 65%, rgba(255,255,255,.95) 100%),
-        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=80");
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80");
       background-size: cover;
-      background-position: center;
       background-attachment: fixed;
+      line-height: 1.6;
     }
 
-    a{color:inherit}
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 14px 56px;
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
     }
 
-    /* Layout: sidebar + content */
-    .layout{
-      display:grid;
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: .5rem;
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .layout {
+      display: grid;
       grid-template-columns: var(--sidebar) 1fr;
-      gap: 16px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      .layout{grid-template-columns: 1fr;}
+      max-width: var(--max);
+      margin: auto;
+      gap: 1.5rem;
+      padding: 1rem;
     }
 
-    /* Sidebar */
-    .sidebar{
+    nav {
       position: sticky;
-      top: 12px;
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.75);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    @media (max-width: 980px){
-      .sidebar{position:relative; top:auto;}
-    }
-
-    .brand{
-      padding:16px 16px 10px;
-      border-bottom:1px solid var(--border);
-      background: rgba(255,255,255,.65);
-    }
-    .brand b{display:block; font-size:16px}
-    .brand span{display:block; color:var(--muted); font-size:12px; margin-top:4px}
-
-    .tabs{
-      display:flex;
-      flex-direction:column;
-      gap:0;
-    }
-    .tab{
-      border:0;
-      background: transparent;
-      text-align:left;
-      padding: 12px 14px;
-      font-weight: 700;
-      cursor:pointer;
-      border-bottom:1px solid var(--border);
-      color:#12204a;
-    }
-    .tab small{
-      display:block;
-      font-weight:600;
-      color:var(--muted);
-      margin-top:4px;
-      font-size:12px;
-    }
-    .tab.active{
-      background: linear-gradient(90deg, rgba(14,165,233,.16), rgba(35,67,255,.10));
-      border-left: 4px solid rgba(35,67,255,.55);
-      padding-left: 10px;
-    }
-
-    /* Content cards */
-    .content{
-      min-width: 0;
-    }
-
-    .row{
-      display:grid;
-      gap:14px;
-    }
-
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
-    @media (max-width: 980px){
-      .grid2{grid-template-columns: 1fr;}
-    }
-
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    @media (max-width: 1200px){
-      .grid3{grid-template-columns: 1fr;}
-    }
-
-    .card{
+      top: 1rem;
+      height: fit-content;
       background: var(--card);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-    .card.soft{background: var(--card2)}
-    h1{margin:0 0 8px; font-size: 40px; line-height:1.06}
-    h2{margin:0 0 10px; font-size: 22px}
-    p{margin:0 0 10px}
-    .muted{color:var(--muted)}
-
-    .verseBox{
-      margin-top:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.55);
-    }
-
-    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .pill{
-      display:inline-block;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.55);
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .btnRow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border:1px solid transparent;
-      cursor:pointer;
-      text-decoration:none;
-      font-weight: 800;
-      background: linear-gradient(90deg, rgba(35,67,255,.92), rgba(14,165,233,.92));
-      color: var(--btnText);
-      box-shadow: 0 10px 26px rgba(35,67,255,.18);
-    }
-    .btn.secondary{
-      background: rgba(255,255,255,.55);
-      color:#12204a;
-      border-color: var(--border);
-      box-shadow:none;
-    }
-
-    ul{margin:8px 0 0 18px}
-    li{margin:6px 0; color: var(--muted); font-weight: 600}
-
-    input, textarea, select{
-      width:100%;
-      padding: 12px;
-      border-radius: 12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.65);
-      outline:none;
-      font-size: 14px;
-    }
-    textarea{min-height:120px; resize:vertical}
-    label{display:block; margin:10px 0 6px; font-size: 12px; color: var(--muted); font-weight: 800}
-
-    .hidden{display:none}
-    .footer{
-      margin-top: 16px;
-      padding: 12px 6px 0;
-      color: var(--muted);
-      font-size: 12px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .notice{
-      padding: 12px 14px;
-      border-radius: 14px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.55);
-      color:#12204a;
-      font-weight: 700;
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    nav button {
+      width: 100%;
+      margin-bottom: .5rem;
+      padding: .6rem;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: var(--accent);
+      color: #000;
+    }
+
+    main { min-height: 80vh; }
+
+    section.panel {
+      display: none;
+      animation: fade .25s ease-in;
+    }
+
+    section.panel.active { display: block; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    blockquote {
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media(max-width:900px){
+      .layout { grid-template-columns: 1fr; }
+      nav { position: static; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="layout">
 
-      <!-- SIDEBAR / TABS -->
-      <aside class="sidebar" aria-label="Site navigation">
-        <div class="brand">
-          <b>Hope in Jesus</b>
-          <span>Salvation • Recovery • Connection • Bible Teaching</span>
-        </div>
+<header>
+  <h1>Jesus Undisputed</h1>
+  <p>Hope, recovery, and transformation through Jesus Christ — not behavior modification, but new life.</p>
+</header>
 
-        <div class="tabs">
-          <button class="tab active" data-target="panel-home">
-            Home
-            <small>Hope & next steps</small>
-          </button>
-          <button class="tab" data-target="panel-gospel">
-            Salvation
-            <small>Free gift • Ephesians 2:8–9</small>
-          </button>
-          <button class="tab" data-target="panel-recovery">
-            Recovery
-            <small>Addictions + heart change</small>
-          </button>
-          <button class="tab" data-target="panel-prayer">
-            Prayer
-            <small>Romans Road prayer</small>
-          </button>
-          <button class="tab" data-target="panel-connect">
-            Connect
-            <small>Profile + churches near you</small>
-          </button>
-        </div>
+<div class="layout">
+  <nav>
+    <button data-panel="home" class="active">Home</button>
+    <button data-panel="recovery">Recovery</button>
+    <button data-panel="defects">Defects</button>
+    <button data-panel="defense">Defense Mechanisms</button>
+    <button data-panel="surrender">Surrender</button>
+    <button data-panel="connect">Connect</button>
+  </nav>
 
-        <div style="padding:14px;">
-          <div class="notice">
-            “Come to Me, all you who labor and are heavy laden, and I will give you rest.”
-            <div style="margin-top:6px; font-weight:900;">Matthew 11:28</div>
-          </div>
-        </div>
-      </aside>
+  <main>
+  <!-- HOME -->
+<section class="panel active" id="panel-home">
+  <div class="grid">
+    <div class="card" style="grid-column: span 12;">
+      <h2>Daily Devotional</h2>
+      <blockquote>
+        “If the Son makes you free, you shall be free indeed.” — John 8:36
+      </blockquote>
+      <p class="muted">Freedom begins with truth, surrender, and walking with Christ daily.</p>
+    </div>
 
-      <!-- MAIN CONTENT -->
-      <main class="content">
+    <div class="card" style="grid-column: span 6;">
+      <h3>Search Scripture</h3>
+      <input type="text" placeholder="Search Bible verses…" style="width:100%;padding:.6rem;border-radius:8px;">
+      <p class="muted">Interpretations are Christ-centered and Scripture-led.</p>
+    </div>
 
-        <!-- HOME -->
-        <section id="panel-home" class="row">
-          <div class="card">
-            <h1>Hope is not a feeling.<br/>Hope is a Person.</h1>
-            <p class="muted">
-              If you are tired, ashamed, afraid, or stuck — Jesus Christ invites you to come to Him.
-              He saves, forgives, heals, and transforms. You don’t clean yourself up first.
-            </p>
-
-            <div class="btnRow">
-              <a class="btn" href="#" data-jump="panel-gospel">Free gift of salvation</a>
-              <a class="btn secondary" href="#" data-jump="panel-recovery">I need recovery</a>
-              <a class="btn secondary" href="#" data-jump="panel-prayer">I want prayer</a>
-              <a class="btn secondary" href="#" data-jump="panel-connect">Connect with believers</a>
-            </div>
-
-            <div class="pillRow">
-              <span class="pill">Drugs</span><span class="pill">Alcohol</span><span class="pill">Pain killers</span><span class="pill">Porn</span>
-              <span class="pill">Video games / escapism</span><span class="pill">Anger</span><span class="pill">Anxiety</span>
-              <span class="pill">Jealousy</span><span class="pill">Control</span><span class="pill">Relationships</span>
-            </div>
-
-            <div class="verseBox">
-              “The LORD is near to the brokenhearted.”<br/>
-              <b>Psalm 34:18</b>
-            </div>
-          </div>
-
-          <div class="grid3">
-            <div class="card soft">
-              <h2>God sees you</h2>
-              <p class="muted">You are not forgotten. God hears your cry.</p>
-              <div class="verseBox"><b>Psalm 34:15</b></div>
-            </div>
-            <div class="card soft">
-              <h2>Jesus saves</h2>
-              <p class="muted">Jesus came to seek and to save the lost.</p>
-              <div class="verseBox"><b>Luke 19:10</b></div>
-            </div>
-            <div class="card soft">
-              <h2>New life is real</h2>
-              <p class="muted">Anyone in Christ is a new creation.</p>
-              <div class="verseBox"><b>2 Corinthians 5:17</b></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- GOSPEL / SALVATION -->
-        <section id="panel-gospel" class="row hidden">
-          <div class="grid2">
-            <div class="card">
-              <h2>The Free Gift of Salvation</h2>
-              <p class="muted">
-                Salvation is not earned. It is given by God’s grace through faith in Jesus Christ.
-              </p>
-              <div class="verseBox">
-                “For by grace you have been saved through faith, and that not of yourselves;
-                it is the gift of God, not of works, lest anyone should boast.”
-                <br/><b>Ephesians 2:8–9</b>
-              </div>
-
-              <p class="muted" style="margin-top:10px">
-                The issue is sin (separation from God) — and the answer is Jesus: crucified and risen.
-              </p>
-              <ul>
-                <li>All have sinned — Romans 3:23</li>
-                <li>Wages of sin is death — Romans 6:23</li>
-                <li>Christ died for us — Romans 5:8</li>
-                <li>Confess + believe He rose — Romans 10:9</li>
-              </ul>
-
-              <div class="btnRow">
-                <a class="btn" href="#" data-jump="panel-prayer">Romans Road prayer</a>
-                <a class="btn secondary" href="#" data-jump="panel-recovery">Recovery through Jesus</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <h2>What to do next</h2>
-              <p class="muted">
-                Come honestly. Repent (turn from sin). Believe the gospel. Surrender your life to Jesus as Lord.
-              </p>
-
-              <div class="verseBox">
-                “If you confess with your mouth the Lord Jesus and believe in your heart that God has raised Him from the dead,
-                you will be saved.”
-                <br/><b>Romans 10:9</b>
-              </div>
-
-              <p class="muted" style="margin-top:10px">
-                Growth is discipleship: read the Word, pray, fellowship, worship, obey — by the Holy Spirit.
-              </p>
-              <div class="verseBox">
-                “Walk in the Spirit, and you shall not fulfill the lust of the flesh.”
-                <br/><b>Galatians 5:16</b>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- RECOVERY -->
-        <section id="panel-recovery" class="row hidden">
-          <div class="card">
-            <h2>Recovery Through Jesus Christ</h2>
-            <p class="muted">
-              Recovery is not behavior management — it is transformation.
-              Jesus sets captives free and renews hearts.
-            </p>
-            <div class="verseBox">
-              “...to proclaim liberty to the captives.”<br/>
-              <b>Luke 4:18</b>
-            </div>
-          </div>
-
-          <div class="grid2">
-            <div class="card">
-              <h2>Freedom From Addictions</h2>
-              <p class="muted">
-                Many people are not weak — they are bound. Jesus came to break chains, forgive sin, and lead you into new life.
-              </p>
-              <ul>
-                <li>Drugs & alcohol</li>
-                <li>Pain killers & substances</li>
-                <li>Pornography & sexual bondage</li>
-                <li>Video games & escapism</li>
-              </ul>
-              <div class="verseBox">
-                “Therefore if the Son makes you free, you shall be free indeed.”<br/>
-                <b>John 8:36</b>
-              </div>
-              <div class="verseBox">
-                “Walk in the Spirit...”<br/>
-                <b>Galatians 5:16</b>
-              </div>
-            </div>
-
-            <div class="card">
-              <h2>Freedom From Heart & Character Struggles</h2>
-              <p class="muted">
-                Some bondage is outward. Some is hidden in the heart. Jesus heals both — from the inside out.
-              </p>
-              <ul>
-                <li>Anger & rage</li>
-                <li>Anxiety, fear, and worry</li>
-                <li>Jealousy & comparison</li>
-                <li>Control & manipulation</li>
-                <li>Relationship damage</li>
-                <li>Pride, bitterness, unforgiveness</li>
-              </ul>
-              <div class="verseBox">
-                “Create in me a clean heart, O God...”<br/>
-                <b>Psalm 51:10</b>
-              </div>
-              <div class="verseBox">
-                “Be transformed by the renewing of your mind.”<br/>
-                <b>Romans 12:2</b>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid2">
-            <div class="card">
-              <h2>Start here</h2>
-              <p class="muted">
-                Start with honesty before God. Confess what’s real. Turn to Jesus. Ask Him to lead you daily.
-              </p>
-              <div class="verseBox">
-                “If we confess our sins, He is faithful and just to forgive us our sins
-                and to cleanse us from all unrighteousness.”<br/>
-                <b>1 John 1:9</b>
-              </div>
-              <p class="muted" style="margin-top:10px">
-                Bring it into the light with a trusted believer, and pursue accountability and discipleship.
-              </p>
-              <div class="verseBox">
-                <b>James 5:16</b>
-              </div>
-
-              <div class="btnRow">
-                <a class="btn" href="#" data-jump="panel-prayer">Pray now</a>
-                <a class="btn secondary" href="#" data-jump="panel-connect">Connect</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <h2>Safety note</h2>
-              <p class="muted">
-                If you feel unsafe or in danger, contact local emergency services immediately.
-                If you’re in withdrawal or medical crisis, seek urgent medical care.
-              </p>
-              <div class="verseBox">
-                “The LORD is near to the brokenhearted.”<br/>
-                <b>Psalm 34:18</b>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PRAYER -->
-        <section id="panel-prayer" class="row hidden">
-          <div class="grid2">
-            <div class="card">
-              <h2>Romans Road</h2>
-              <ul>
-                <li>Romans 3:23 — all have sinned</li>
-                <li>Romans 6:23 — wages of sin is death; gift of God is eternal life</li>
-                <li>Romans 5:8 — Christ died for us</li>
-                <li>Romans 10:9–10 — confess + believe He rose</li>
-                <li>Romans 10:13 — whoever calls on the Lord will be saved</li>
-              </ul>
-
-              <div class="verseBox">
-                “Whoever calls on the name of the LORD shall be saved.”<br/>
-                <b>Romans 10:13</b>
-              </div>
-            </div>
-
-            <div class="card">
-              <h2>Prayer of Repentance & Faith</h2>
-              <p class="muted">This isn’t magic words. God looks at the heart. If this is your heart, pray:</p>
-
-              <div class="verseBox">
-                “God, I confess that I have sinned against You. I repent and turn from my sin.
-                I believe Jesus Christ died for my sins and rose again.
-                Jesus, You are Lord—You alone are the living God, and I surrender my life to You.
-                Forgive me, cleanse me, and make me new. Fill me with Your Holy Spirit and lead me from this day forward.
-                In Jesus’ name, amen.”
-              </div>
-
-              <div class="btnRow">
-                <a class="btn secondary" href="#" data-jump="panel-gospel">Back to Salvation</a>
-                <a class="btn secondary" href="#" data-jump="panel-recovery">Recovery help</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2>Prayer Request (emails jesusundisputed@gmail.com)</h2>
-            <p class="muted">Type your request. The button will open your email with it filled in.</p>
-
-            <form onsubmit="return false;">
-              <label for="prayerName">Name (optional)</label>
-              <input id="prayerName" type="text" placeholder="Your name (optional)">
-
-              <label for="prayerMsg">Prayer request</label>
-              <textarea id="prayerMsg" placeholder="How can we pray for you?"></textarea>
-
-              <div class="btnRow">
-                <a id="prayerMailto" class="btn"
-                  href="mailto:jesusundisputed@gmail.com?subject=Prayer%20Request">
-                  Email Prayer Request
-                </a>
-                <a class="btn secondary" href="#" data-jump="panel-connect">Connect</a>
-              </div>
-            </form>
-
-            <div class="verseBox">
-              “Cast all your care upon Him, for He cares for you.”<br/>
-              <b>1 Peter 5:7</b>
-            </div>
-          </div>
-        </section>
-
-        <!-- CONNECT -->
-        <section id="panel-connect" class="row hidden">
-          <div class="grid2">
-            <div class="card">
-              <h2>Create a Christian Profile (local)</h2>
-              <p class="muted">
-                This page is static, so it cannot “store accounts” on a server yet.
-                But you can create a simple local profile (saved in your browser) and copy/share it.
-                If you want real accounts + messaging later, tell me and we’ll add a free backend.
-              </p>
-
-              <label for="profName">Name</label>
-              <input id="profName" placeholder="Your name">
-
-              <label for="profCity">City / Area</label>
-              <input id="profCity" placeholder="City, State">
-
-              <label for="profNeed">What are you seeking help with?</label>
-              <select id="profNeed">
-                <option value="Hope">Hope</option>
-                <option value="Salvation">Salvation</option>
-                <option value="Recovery - addictions">Recovery - addictions</option>
-                <option value="Recovery - character / heart">Recovery - character / heart</option>
-                <option value="Discipleship">Discipleship</option>
-                <option value="Prayer">Prayer</option>
-              </select>
-
-              <label for="profBio">Short note</label>
-              <textarea id="profBio" placeholder="A short note (optional)"></textarea>
-
-              <div class="btnRow">
-                <button class="btn" id="saveProfile" type="button">Save profile</button>
-                <button class="btn secondary" id="copyProfile" type="button">Copy profile</button>
-                <a class="btn secondary" id="emailProfile" href="#">Email profile</a>
-              </div>
-
-              <div class="verseBox">
-                “Let us consider one another in order to stir up love and good works...”
-                <br/><b>Hebrews 10:24–25</b>
-              </div>
-            </div>
-
-            <div class="card">
-              <h2>Find Bible-Teaching Churches Near You</h2>
-              <p class="muted">
-                Use these quick searches to find churches that teach the Bible and exalt Jesus.
-                (You can add a directory later.)
-              </p>
-
-              <div class="btnRow">
-                <a class="btn secondary" target="_blank" rel="noopener"
-                   href="https://www.google.com/maps/search/?api=1&query=Calvary+Chapel+near+me">
-                  Calvary Chapel near me
-                </a>
-
-                <a class="btn secondary" target="_blank" rel="noopener"
-                   href="https://www.google.com/maps/search/?api=1&query=Bible+teaching+church+near+me">
-                  Bible-teaching church near me
-                </a>
-
-                <a class="btn secondary" target="_blank" rel="noopener"
-                   href="https://www.google.com/maps/search/?api=1&query=Jesus+centered+church+near+me">
-                  Jesus-centered church near me
-                </a>
-              </div>
-
-              <p class="muted" style="margin-top:10px">
-                What to look for: clear gospel, Scripture taught faithfully, Jesus exalted, repentance and faith, Spirit-led living.
-              </p>
-
-              <div class="verseBox">
-                “Preach the word!”<br/>
-                <b>2 Timothy 4:2</b>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2>Connect request (email)</h2>
-            <p class="muted">If someone wants help getting connected, this button opens an email to you.</p>
-
-            <div class="btnRow">
-              <a class="btn" href="mailto:jesusundisputed@gmail.com?subject=Connect%20Request&body=Hi%2C%20I%20want%20to%20connect%20with%20believers%20and%20find%20a%20Bible-teaching%20church.%0A%0ACity%2FArea%3A%20%0AWhat%20I%20need%20help%20with%3A%20%0A">
-                Email connect request
-              </a>
-              <a class="btn secondary" href="#" data-jump="panel-recovery">Recovery</a>
-              <a class="btn secondary" href="#" data-jump="panel-gospel">Salvation</a>
-            </div>
-          </div>
-        </section>
-
-        <div class="footer">
-          <div>© <span id="year"></span> Hope in Jesus</div>
-          <div>Jesus Christ is Lord</div>
-        </div>
-      </main>
+    <div class="card" style="grid-column: span 6;">
+      <h3>Live Hope Counter</h3>
+      <h1 id="surrenderCount">0</h1>
+      <p class="muted">People surrendering their lives to Jesus.</p>
     </div>
   </div>
+</section>
 
-  <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+<!-- RECOVERY -->
+<section class="panel" id="panel-recovery">
+  <div class="card">
+    <h2>Recovery Through Jesus Christ</h2>
+    <p><strong>Recovery is not behavior modification—it is transformation. Jesus Christ does not merely help us cope; He sets us free.</strong></p>
+  </div>
+</section>
 
-    // Tabs behavior
-    const tabs = Array.from(document.querySelectorAll(".tab"));
-    const panels = Array.from(document.querySelectorAll("main section.row"));
-    function showPanel(id){
-      panels.forEach(p => p.classList.toggle("hidden", p.id !== id));
-      tabs.forEach(t => t.classList.toggle("active", t.dataset.target === id));
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-    tabs.forEach(t => t.addEventListener("click", () => showPanel(t.dataset.target)));
+<!-- DEFECTS -->
+<section class="panel" id="panel-defects">
+  <div class="card">
+    <h2>Character Defects</h2>
+    <p class="muted">Healing the heart through truth, repentance, and renewal.</p>
+    <ul>
+      <li>Anger</li>
+      <li>Fear & Anxiety</li>
+      <li>Codependency</li>
+      <li>Pride</li>
+      <li>Control</li>
+      <li>Shame</li>
+    </ul>
+  </div>
+</section>
 
-    // "Jump" links
-    document.querySelectorAll("[data-jump]").forEach(a => {
-      a.addEventListener("click", (e) => {
-        e.preventDefault();
-        showPanel(a.dataset.jump);
-      });
-    });
+<!-- DEFENSE MECHANISMS -->
+<section class="panel" id="panel-defense">
+  <div class="card">
+    <h2>Defense Mechanisms</h2>
+    <blockquote>
+      “There is a way that seems right to a man, but its end is the way of death.” — Proverbs 14:12
+    </blockquote>
+    <p class="muted">Defense mechanisms hide pain but prevent healing.</p>
+  </div>
+</section>
 
-    // Prayer mailto auto-fill
-    const TO_EMAIL = "jesusundisputed@gmail.com";
-    const prayerNameEl = document.getElementById("prayerName");
-    const prayerMsgEl  = document.getElementById("prayerMsg");
-    const prayerLinkEl = document.getElementById("prayerMailto");
+<!-- SURRENDER -->
+<section class="panel" id="panel-surrender">
+  <div class="card">
+    <h2>Total Surrender</h2>
+    <p class="muted">Salvation is a free gift — Ephesians 2:8–9</p>
+    <textarea placeholder="Your surrender prayer…" style="width:100%;height:140px;"></textarea>
+    <button onclick="recordSurrender()">Submit Surrender</button>
+  </div>
+</section>
 
-    function refreshPrayerEmail(){
-      if(!prayerNameEl || !prayerMsgEl || !prayerLinkEl) return;
-      const name = (prayerNameEl.value || "").trim();
-      const msg  = (prayerMsgEl.value || "").trim();
-      const subject = encodeURIComponent("Prayer Request");
-      const body = encodeURIComponent((name ? ("Name: " + name + "\n\n") : "") + msg);
-      prayerLinkEl.href = `mailto:${TO_EMAIL}?subject=${subject}&body=${body}`;
-    }
-    if(prayerNameEl && prayerMsgEl){
-      prayerNameEl.addEventListener("input", refreshPrayerEmail);
-      prayerMsgEl.addEventListener("input", refreshPrayerEmail);
-      refreshPrayerEmail();
-    }
+<!-- CONNECT -->
+<section class="panel" id="panel-connect">
+  <div class="card">
+    <h2>Connect With Bible-Teaching Churches</h2>
+    <blockquote>
+      “All Scripture is given by inspiration of God…” — 2 Timothy 3:16–17
+    </blockquote>
+    <a href="https://www.google.com/maps/search/Calvary+Chapel+near+me" target="_blank">
+      Find Churches Near You
+    </a>
+  </div>
+</section>
+  </main>
+</div>
 
-    // Local profile (saved in browser)
-    const profName = document.getElementById("profName");
-    const profCity = document.getElementById("profCity");
-    const profNeed = document.getElementById("profNeed");
-    const profBio  = document.getElementById("profBio");
-    const saveBtn  = document.getElementById("saveProfile");
-    const copyBtn  = document.getElementById("copyProfile");
-    const emailBtn = document.getElementById("emailProfile");
+<footer>
+  Jesus Undisputed © <span id="year"></span>
+</footer>
 
-    function profileText(){
-      const name = (profName?.value || "").trim();
-      const city = (profCity?.value || "").trim();
-      const need = (profNeed?.value || "").trim();
-      const bio  = (profBio?.value || "").trim();
-      return [
-        "Christian Profile",
-        "Name: " + (name || "(not provided)"),
-        "City/Area: " + (city || "(not provided)"),
-        "Seeking: " + (need || "(not provided)"),
-        "Note: " + (bio || "(not provided)")
-      ].join("\n");
-    }
+<script>
+  const buttons = document.querySelectorAll("nav button");
+  const panels = document.querySelectorAll(".panel");
 
-    function loadProfile(){
-      try{
-        const raw = localStorage.getItem("hope_profile");
-        if(!raw) return;
-        const p = JSON.parse(raw);
-        if(profName) profName.value = p.name || "";
-        if(profCity) profCity.value = p.city || "";
-        if(profNeed) profNeed.value = p.need || "Hope";
-        if(profBio)  profBio.value  = p.bio  || "";
-        refreshProfileEmail();
-      }catch(e){}
-    }
+  buttons.forEach(btn => {
+    btn.onclick = () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      panels.forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("panel-" + btn.dataset.panel).classList.add("active");
+    };
+  });
 
-    function saveProfile(){
-      const payload = {
-        name: (profName?.value || "").trim(),
-        city: (profCity?.value || "").trim(),
-        need: (profNeed?.value || "").trim(),
-        bio:  (profBio?.value  || "").trim()
-      };
-      localStorage.setItem("hope_profile", JSON.stringify(payload));
-      refreshProfileEmail();
-      alert("Profile saved in this browser.");
-    }
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    async function copyProfile(){
-      const text = profileText();
-      try{
-        await navigator.clipboard.writeText(text);
-        alert("Profile copied.");
-      }catch(e){
-        alert("Copy failed. You can select and copy manually.");
-      }
-    }
+  let count = localStorage.getItem("surrenders") || 0;
+  document.getElementById("surrenderCount").textContent = count;
 
-    function refreshProfileEmail(){
-      if(!emailBtn) return;
-      const subject = encodeURIComponent("Christian Profile / Connect");
-      const body = encodeURIComponent(profileText());
-      emailBtn.href = `mailto:${TO_EMAIL}?subject=${subject}&body=${body}`;
-    }
+  function recordSurrender(){
+    count++;
+    localStorage.setItem("surrenders", count);
+    document.getElementById("surrenderCount").textContent = count;
+    alert("Praise God. Your surrender has been recorded.");
+  }
+</script>
 
-    if(saveBtn) saveBtn.addEventListener("click", saveProfile);
-    if(copyBtn) copyBtn.addEventListener("click", copyProfile);
-    if(profName) profName.addEventListener("input", refreshProfileEmail);
-    if(profCity) profCity.addEventListener("input", refreshProfileEmail);
-    if(profNeed) profNeed.addEventListener("change", refreshProfileEmail);
-    if(profBio)  profBio.addEventListener("input", refreshProfileEmail);
-
-    loadProfile();
-  </script>
 </body>
 </html>
