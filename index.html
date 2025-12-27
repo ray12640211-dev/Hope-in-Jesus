@@ -304,19 +304,25 @@
 
     <div class="card">
       <h2>Prayer Request</h2>
-      <p class="muted">Tap below to email a prayer request directly.</p>
+     
+  <p class="muted">Type your request, then tap the button to email it.</p>
 
-      <form onsubmit="return false;">
-        <input id="name" type="text" placeholder="Your name (optional)">
-        <textarea id="msg" placeholder="How can we pray for you?"></textarea>
-        <a id="mailto" class="btn" href="mailto:jesusundisputed@gmail.com?subject=Prayer%20Request">Email Prayer Request</a>
-      </form>
+  <form onsubmit="return false;">
+    <input id="prayerName" type="text" placeholder="Your name (optional)">
+    <textarea id="prayerMsg" placeholder="How can we pray for you?"></textarea>
 
-      <p class="muted" style="margin-top:10px">
-        “Cast all your care upon Him, for He cares for you.”
-        <strong>1 Peter 5:7</strong>
-      </p>
-    </div>
+    <a id="prayerMailto" class="btn" href="mailto:jesusundisputed@gmail.com?subject=Prayer%20Request">
+      Email Prayer Request
+    </a>
+    <a class="btn alt" href="#recovery-intro">Recovery help</a>
+  </form>
+
+  <p class="muted" style="margin-top:10px">
+    “Cast all your care upon Him, for He cares for you.”
+    <strong>1 Peter 5:7</strong>
+  </p>
+</div>
+
   </section>
 
   <footer>
