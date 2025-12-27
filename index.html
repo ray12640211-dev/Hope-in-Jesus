@@ -225,3 +225,85 @@ In Jesus’ name, amen.
   “All Scripture is given by inspiration of God, and is profitable for doctrine,
   for reproof, for correction, for instruction in righteousness,
   that the man of God may be complete, thoroughly equipped for every good work. 
+.”
+<br>
+— 2 Timothy 3:16–17
+</blockquote>
+
+</div>
+</section>
+
+</div> <!-- end .content -->
+</div> <!-- end .layout -->
+
+<footer>
+  Jesus Undisputed © <span id="year"></span>
+</footer>
+
+</main>
+
+<script>
+  // Set footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // TAB NAVIGATION
+  const buttons = document.querySelectorAll("nav button");
+  const panels = document.querySelectorAll(".panel");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      panels.forEach(p => p.classList.remove("active"));
+
+      btn.classList.add("active");
+      const panel = document.getElementById("panel-" + btn.dataset.panel);
+      if (panel) panel.classList.add("active");
+    });
+  });
+
+  // SALVATION BUTTONS
+  const copyBtn = document.getElementById("copyPrayerBtn");
+  const prayedBtn = document.getElementById("prayedBtn");
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      const text = document.getElementById("salvationPrayer").value;
+      navigator.clipboard.writeText(text);
+      alert("Prayer copied.");
+    });
+  }
+
+  if (prayedBtn) {
+    prayedBtn.addEventListener("click", () => {
+      document.getElementById("salvationMsg").style.display = "block";
+      alert("Praise God. Salvation is by grace through faith in Jesus Christ.");
+    });
+  }
+
+  // PRAYER REQUEST → EMAIL
+  const prayerForm = document.getElementById("prayerForm");
+  if (prayerForm) {
+    prayerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("prayerName").value || "Not provided";
+      const email = document.getElementById("prayerEmail").value || "Not provided";
+      const request = document.getElementById("prayerRequest").value;
+
+      const subject = "Prayer Request – Jesus Undisputed";
+      const body =
+        "Prayer Request:\n\n" + request +
+        "\n\nName: " + name +
+        "\nEmail: " + email +
+        "\n\nSent from jesusundisputed.com";
+
+      window.location.href =
+        "mailto:jesusundisputed@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+  }
+</script>
+
+</body>
+</html>
